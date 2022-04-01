@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script data-ad-client="ca-pub-5677906287029990" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<title>Adopta Ya | Iniciar sesion</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title><?php echo $Title; ?></title>
+	<link rel="icon" type="image/png" href="../templates/static/images/icon.png"/>
+	<link rel="stylesheet" href="../templates/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../templates/static/css/mdb.min.css">
+	<link rel="stylesheet" href="../templates/static/css/fontawesome.css">
+	<link rel="stylesheet" href="../templates/static/css/w3.css">
+	<link rel="preconnect" href="https://fonts.g../templates/static.com">
+	<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Roboto+Slab&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../templates/static/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="../templates/static/css/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="../templates/static/css/opentip.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<meta name="description" content="Somos una página web con el objetivo de que las personas que quieran tener en sus hogares a una nueva mascota puedan hacerlo.">
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>
+	<script>
+	function submitForm() {
+	    document.getElementById('registerForm').submit();
+	}
+	</script>
+	<style type="text/css">
+		body{
+		    background: #F8FAFA !important;  
+		}
+		div.g-recaptcha {
+		   -webkit-transform: scale(0.85);
+		     -moz-transform: scale(0.85);
+		      -ms-transform: scale(0.85);
+		       -o-transform: scale(0.85);
+		          transform: scale(0.85);
+		   -webkit-transform-origin: 0 0;
+		      -moz-transform-origin: 0 0;
+		       -ms-transform-origin: 0 0;
+		        -o-transform-origin: 0 0;
+		           transform-origin: 0 0;
+		}
+		.transition{
+		    transition: 0.7s;
+		}
+		.forgot{
+		  font-family: 'Didact Gothic', sans-serif;
+		  font-weight: 300;
+		  font-size: 1em;
+		}
+
+		.forgot:hover{
+		  color: #A93226;
+		}
+
+		.form-check-input[type='checkbox']:checked{
+			top: 0;
+			border-color: #E54434 !important;
+			background-color: #E54434 !important;
+			z-index: 0;
+		}
+	</style>
+</head>
+<body>
+
+	<section class="row m-0 justify-content-center align-items-center vh-100">
+		<div class="col-sm-6 rounded text-center login">
+			<a href="/">
+				<img src="../templates/static/images/logo_test.png" class="img-fluid" width="170">
+			</a>
+
+			<form method="post" id="registerForm">
+
+				<p class="text-center">o:</p>
+
+				<!-- Name input -->
+				<div class="form-outline mb-4">
+					<input type="text" id="registerName" class="form-control" autocomplete="off" maxlength="15" minlength="3" name="reg_nombre" required />
+					<label class="form-label" for="registerName">Nombre</label>
+				</div>
+
+				<!-- Username input -->
+				<div class="form-outline mb-4">
+					<input type="text" id="registerApellido" class="form-control" autocomplete="off" maxlength="15" minlength="3" name="reg_apellido" required/>
+					<label class="form-label" for="registerApellido">Apellido</label>
+				</div>
+
+				<!-- Email input -->
+				<div class="form-outline mb-4">
+					<input type="email" id="registerEmail" class="form-control" autocomplete="off" maxlength="45" name="reg_email" required  value="<?php echo $email; ?>" />
+					<label class="form-label" for="registerEmail">Correo electrónico</label>
+				</div>
+
+				<!-- Password input -->
+				<div class="form-outline mb-4">
+					<input type="password" id="registerPassword" class="form-control" autocomplete="off" maxlength="15" minlength="8"  name="reg_password"required />
+					<label class="form-label" for="registerPassword">Contraseña</label>
+				</div>
+
+				<!-- Department select -->
+				<div class="text-left">
+					<label class="form-label text-left" for="registerDep">Departamento</label>
+				</div>
+				<select id="registerDep" name="reg_departamento" class="form-select mb-4" required>
+					<option value="Artigas">Artigas</option>
+					<option value="Canelones">Canelones</option>
+					<option value="Cerro Largo">Cerro Largo</option>
+					<option value="Colonia">Colonia</option>
+					<option value="Durazno">Durazno</option>
+					<option value="Flores">Flores</option>
+					<option value="Lavalleja">Lavalleja</option>
+					<option value="Maldonado">Maldonado</option>
+					<option value="Montevideo" selected>Montevideo</option>
+					<option value="Paysandú">Paysandú</option>
+					<option value="Rio Negro:">Río Negro</option>
+					<option value="Rivera">Rivera</option>
+					<option value="Rocha">Rocha</option>
+					<option value="Salto">Salto</option>
+					<option value="San Jose">San José</option>
+					<option value="Soriano">Soriano</option>
+					<option value="Tacuarembo">Tacuarembó</option>
+					<option value="Treinta y Tres">Treinta y Tres</option>
+				</select>
+
+				<div class="col-sm-12 my-1 text-left">
+					<label class="form-label text-left" for="resisterCel">Celular</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text ">
+								<span class="flag-icon flag-icon-uy flag-icon-squared flag-icon-background" style="width: 20px; height: 24px;"></span>
+							</div>
+						</div>
+						<input type="tel" id="resisterCel" class="form-control" autocomplete="off" pattern=".{8,}" maxlength="9" minlength="8" name="reg_telcel"/>
+					</div>
+				</div>
+				<input type="hidden" name="google_id" value="<?php echo $id; ?>">
+				<?php echo $errorMsgRegistro; ?>
+
+				<!-- Submit button -->
+				<button type="submit" class="g-recaptcha btn btn-light btn-lg w3-padding-16" data-mdb-ripple-color="dark" data-sitekey="6Lf9zXgaAAAAALJIaUiMnvcVzwex4pQOkbkNUupT" data-callback="submitForm">
+					<span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 
+					REGISTRARSE
+				</button>
+			</form>
+	<!-- Pills content -->
+</div>
+</section>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="../templates/static/js/bootstrap.js"></script>
+<script src="../templates/static/js/mdb.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2.9.0/dist/umd/popper.min.js"></script>
+<script src="../templates/static/js/00bf663aea.js"></script>
+<script src="../templates/static/js/slick.js"></script>
+<script src="../templates/static/js/opentip.jquery.js"></script>
+<script src="../templates/static/js/alertify.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="../templates/static/js/custom.js"></script>
+<script>
+	AOS.init();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?php if (!empty($_GET['mail'])) {
+?>
+	<section class="container-fluid w3-padding-64 text-center card">
+	<h1 class="style-text-2 text-success"><i class="fas fa-badge-check"></i> Asistencia verificada con éxito, no olvides asistir!</h1>
+	<h4 class="font-1" style="font-size: 1.4em; font-weight: bold;">El día sábado 27 de márzo de 2021 a las 20:00 hs.</h4>
+	<div class="text-left container">
+		<h4 class="font-1" style="font-size: 1.4em;">Enlace: <a href="https://us04web.zoom.us/j/79127940020?pwd=ZDNKK1ZBYWkrSHVFMTVSRWVpekw4Zz09" target="_blank"><b>https://us04web.zoom.us/j/79127940020?pwd=ZDNKK1ZBYWkrSHVFMTVSRWVpekw4Zz09</b></a></h4>
+		<h4 class="font-1" style="font-size: 1.4em;">Meeting ID: <b>791 2794 0020</b></h4>
+		<h4 class="font-1" style="font-size: 1.4em;">Passcode: <b>9vALWH</b></h4>
+	</div>
+	<h4 class="font-1 color-2" style="font-size: 1.4em;"><b>*PEDIMOS A TODAS LAS PERSONAS QUE SEAN RESPONSABLES Y NO COMPARTAN EL ENLACE DE ZOOM CON CUALQUIER PERSONA, EN CASO DE CONOCER OTRA PROTECTORA O REFUGIO ENVIARLE EL ENLACE PARA QUE SE REGISTREN*</b></h4>
+	<p hidden id="copia_enlace">https://adoptaya.com/reunion_zoom</p>
+	<div class="text-right">
+		<button class="btn ay-btn" onclick="copiarAlPortapapeles('copia_enlace')">Copiar enlace</button>
+	</div>
+</section>
+
+<?php } ?>

@@ -1,0 +1,441 @@
+<section class="container-fluid w3-padding-64">
+	<h2 class="style-text-2"><?php echo $U_Name; ?>, aquí podrás editar la información básica de tu usuario.</h2>
+	<form method="POST">
+		<div class="form-group row">
+			<?php if ($u_Actived == 0) { ?>
+			<h4 class="style-text-2 text-bold color-2 ml-3 mt-2"><i class="fad fa-exclamation-triangle color-2"></i> Debes activar tu cuenta si quieres publicar o adoptar mascotas!</h4>
+			<?php } ?>
+			<div class="col-sm-3">
+				<div class="dropdown">
+					<a href="#" id="imageDropdown dropdown-toggle" data-toggle="dropdown">
+						<img id="imageresource" class="img-fluid w-100 h-100" src="../templates/static/images/profile_images/<?php echo $Profile_Image; ?>">
+					</a>
+					<ul class="dropdown-menu w-100 animate slideIn" role="menu" aria-labelledby="imageDropdown">
+				        <a class="dropdown-item" role="menuitem" tabindex="-1" href="#" id="see_profile_image"><i class="fal fa-portrait"></i> Ver foto de perfil</a>
+
+				       	<a class="dropdown-item" role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#change_profile_photo"><i class="fal fa-images"></i> Cambiar imágen</a>
+				    </ul>
+			    </div>
+			</div>
+			<div class="col-sm-9">
+				<label class="mt-4" style="font-weight: bold;">Cambiar correo electrónico</label>
+				<input type="text" name="edit_correo" class="w3-input default-font" value="<?php echo $u_Correo; ?>">
+				<label class="mt-4" style="font-weight: bold;">Cambiar celular</label>
+				<input type="text" name="edit_cel" class="w3-input default-font" value="<?php echo $u_Celular; ?>">
+				<label class="mt-4" style="font-weight: bold;" class="pt-2">Cambiar departamento</label>
+				<select name="edit_departamento" class="w3-input">
+					<?php
+					switch ($U_Departamento) {
+						case 'Artigas':
+							$dep = '
+							<option value="Artigas" selected>Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Canelones':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones" selected>Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Cerro Largo':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo" selected>Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Colonia':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia" selected>Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Durazno':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno" selected>Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Flores':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores" selected>Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Lavalleja':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja" selected>Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Maldonado':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado" selected>Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Montevideo':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo" selected>Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Paysandu':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandu" selected>Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Rio Negro':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro" selected>Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Rivera':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera" selected>Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Rocha':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha" selected>Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Salto':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto" selected>Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'San Jose':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose" selected>San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Soriano':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano" selected>Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Tacuarembo':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo" selected>Tacuarembó</option>
+							<option value="Treinta y Tres">Treinta y Tres</option>
+							';
+							break;
+						case 'Treinta y Tres':
+							$dep = '
+							<option value="Artigas">Artigas</option>
+							<option value="Canelones">Canelones</option>
+							<option value="Cerro Largo">Cerro Largo</option>
+							<option value="Colonia">Colonia</option>
+							<option value="Durazno">Durazno</option>
+							<option value="Flores">Flores</option>
+							<option value="Lavalleja">Lavalleja</option>
+							<option value="Maldonado">Maldonado</option>
+							<option value="Montevideo">Montevideo</option>
+							<option value="Paysandú">Paysandú</option>
+							<option value="Rio Negro">Río Negro</option>
+							<option value="Rivera">Rivera</option>
+							<option value="Rocha">Rocha</option>
+							<option value="Salto">Salto</option>
+							<option value="San Jose">San José</option>
+							<option value="Soriano">Soriano</option>
+							<option value="Tacuarembo">Tacuarembó</option>
+							<option value="Treinta y Tres" selected>Treinta y Tres</option>
+							';
+							break;
+					}
+					echo $dep;
+					?>
+				</select>
+			</div>
+			<?php echo $errorChangeProfilePhoto; ?>
+			<div class="text-center mt-5">
+				<button type="submit" name="edit_user" class="btn btn-lg btn-block publicar-btn">Cambiar mi información</button>
+			</div>
+			<div class="text-right">
+				<a style="font-size: 1.3em; font-weight: bold;" class="change_pass" href="/cambiar-clave"><i class="far fa-lock"></i> Cambiar la contraseña</a>
+			</div>
+			<?php echo $msgUserInfoError; ?>
+		</div>
+	</form>
+</section>
+

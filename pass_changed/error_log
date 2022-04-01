@@ -1,0 +1,2 @@
+[09-Mar-2021 17:36:12 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 17:36:12 America/Montevideo] PHP Notice:  Undefined variable: U_Departamento in /home/iy4qel5ji067/public_html/templates/footer.html on line 135

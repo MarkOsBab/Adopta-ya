@@ -1,0 +1,52 @@
+<section class="container-fluid w3-padding-64 item-serv">
+	<div class="zoom_header"></div>
+	<div class="row no-gutter card">
+		<div class="col-md-12 text-center">
+			<h1 class="style-text-1 color-2"><i class="fad fa-hands-heart"></i> Ayudanos a llevar a cabo el proyecto de Ley de protección animal</h1>
+			<p class="style-text-2 w3-text-red m-4"><b>*PEDIMOS SOLO A LAS PROTECTORAS Y A LOS REFUGIOS ANIMALES QUE COMPLETEN EL FORMULARIO PARA QUE PODAMOS CONTACTARNOS CON ELLOS Y PODER REALIZAR LA REUNIÓN MEDIANTE ZOOM*</b></p>
+		</div>
+		<div class="col-md-12">
+			<form method="post" id="zoomForm">
+				<div class="form-group row text-left">
+					<div class="col-md-4">
+						<label class="form-label text-bold" for="zoom_ref_prot">Selecciona una opción</label>
+						<select id="zoom_ref_prot" class="form-select mb-3" name="zoom_ref_prot">
+							<option value="Protectora">Protectora animal</option>
+							<option value="Refugio">Refugio animal</option>
+						</select>
+					</div>
+					<div class="col-md-8">
+						<label class="form-label text-bold" for="zoom_nombre" id="zoom_nombre">Nombre de protectora / refugio</label>
+						<input type="text" id="zoom_nombre" class="form-control" name="zoom_nombre" />
+					</div>
+					<div class="col-md-7">
+						<label class="form-label text-bold" for="zoom_correo" id="zoom_correo">Correo de contacto</label>
+						<input type="email" id="zoom_correo" class="form-control" name="zoom_correo" />
+					</div>
+					<div class="col-sm-5 my-1 text-left">
+				      <label class="form-label text-bold" for="zoom_telCel">Celular o teléfono de contacto</label>
+				      <div class="input-group">
+				        <div class="input-group-prepend">
+				          <div class="input-group-text ">
+				          	<span class="flag-icon flag-icon-uy flag-icon-squared flag-icon-background" style="width: 20px; height: 24px;"></span>
+				          </div>
+				        </div>
+				        <input type="tel" id="zoom_telCel" class="form-control" autocomplete="off" name="zoom_telCel"/>
+				      </div>
+				    </div>
+				</div>
+
+				<div class="text-right mt-3 col-md-12">
+					<button type="submit" class="g-recaptcha btn btn-light btn-lg w3-padding-16" data-mdb-ripple-color="dark" name="zoom" data-sitekey="6LdcTYAaAAAAAL4y78hb6sMN90TEQlGA6mYG16_q" data-callback="submitForm">
+						<span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 
+						Enviar los datos
+					</button>
+				</div>
+				<div class="text-left mt-3 col-md-6">
+					<a class="btn btn-info style-text-2" href="https://adoptaya.com/proyecto-proteccion-animal" target="_blank">Más información sobre el proyecto</a>
+				</div>
+				<?php echo $errorMsgZoom; ?>
+			</form>
+		</div>
+	</div>
+</section>

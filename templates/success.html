@@ -1,0 +1,17 @@
+<?php 
+if (empty($_SESSION['id'])) {
+?>
+<section class="container-fluid w3-padding-64">
+	<h1 class="style-text-2">
+		<span class="color-2"><i class="fad fa-heart-circle"></i></span> 
+		Agradecemos que hayas tomado esta iniciativa de donar. Esto nos ayuda mucho a mantener el sitio web en línea.
+	</h1>
+</section>
+<?php } else { ?>
+	<section class="container-fluid w3-padding-64">
+		<h1 class="style-text-2">
+		<span class="color-2"><i class="fad fa-heart-circle"></i></span> 
+		<?php echo $U_Name; ?>, agradecemos que hayas tomado esta iniciativa de donar. Esto nos ayuda mucho a mantener el sitio web en línea.
+	</h1>
+	</section>
+<?php } ?>

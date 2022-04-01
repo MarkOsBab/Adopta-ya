@@ -1,0 +1,177 @@
+<?php 
+
+foreach ($user_info as $user) {
+	$id = $user['id'];
+	$Nombre = $user['Nombre'];
+	$Apellido = $user['Apellido'];
+	$Celular = $user['Celular'];
+	$Departamento = $user['Departamento'];
+	$Correo = $user['Correo'];
+	$User_Token = $user['Token_ID'];
+}
+
+$buscaFotoPerfil = $db->prepare("SELECT * FROM usuarios_profile_images WHERE Token_ID='$User_Token'");
+$buscaFotoPerfil->execute();
+$resultFotoPerfil = $buscaFotoPerfil->fetchAll();
+
+foreach ($resultFotoPerfil as $row) {
+	$Profile_Image = $row['Profile_Image'];
+}
+
+switch ($Sexo) {
+	case 'Macho':
+	$Icon_Sexo = '<i class="fas fa-mars"></i>';
+	break;
+	case 'Hembra':
+	$Icon_Sexo = '<i class="fas fa-venus"></i>';
+	break;	
+	default:
+	$Icon_Sexo = '<i class="fas fa-venus-mars"></i>';
+	break;
+}
+
+switch ($Castrado) {
+	case 1:
+	$Info_Castrado = "Sí";
+	break;
+	case 0:
+	$Info_Castrado = "No";
+	break;
+	case 2:
+	$Info_Castrado = "No dispone de esa información";
+	break;
+}
+
+switch ($Desparasitado) {
+	case 1:
+	$Info_Desparasitado = "Sí";
+	break;
+	case 0:
+	$Info_Desparasitado = "No";
+	break;
+	case 2:
+	$Info_Desparasitado = "No dispone de esa información";
+	break;
+}
+
+switch ($Vacunado) {
+	case 1:
+	$Info_Vacunado = "Sí";
+	break;
+	case 0:
+	$Info_Vacunado = "No";
+	break;
+	case 2:
+	$Info_Vacunado = "No dispone de esa información";
+	break;
+}
+
+switch ($WhatsApp) {
+	case '1':
+	$Whapp_Icon = '<i id="whatsapp" class="fab fa-whatsapp fa-lg"></i>';
+	break;
+	
+	default:
+	$Whapp_Icon = '';
+	break;
+}
+?>
+
+<section class="container-fluid rounded row">
+	<h2 class="style-text-1 publicacion-titles-font mt-3 text-center" title="<?php echo $Titulo; ?>"><?php echo $Titulo; ?></h2>
+	<div class="text-left">
+		<small class="style-text-2 text-publicacion">
+		 <span id="see_profile_image">
+		 	<?php if ($Show_Photo == 1){ ?>
+		 		<img id="imageresource" class="img-fluid contain avatar_publicacion" src="../templates/static/images/profile_images/<?php echo $Profile_Image; ?>">
+		 	<?php } else{} ?>
+		 </span>
+		 <span class="m-2">Publicado por <span class="color-2" style="font-weight: bold;"><?php echo $Nombre.' '. $Apellido; ?></span>, el <?php echo $Fecha; ?></span>
+		</small>
+	</div>
+	<div class="col-sm-6 text-left" style="max-width: 35rem;">
+		
+		<p class="style-text-2 text-publicacion">Zona <span class="color-2" style="font-weight: bold;"><?php echo $Dept_Barrio; ?></span></p>
+		<div class="slider slider-for">
+			<?php 
+			while ($img = $info_imagenes->fetch(PDO::FETCH_ASSOC)) {
+				echo '<img class="img-fluid contain rounded img-thumbnail" src="imagenes/'.$img['imagenes'].'" style="height: 450px;" alt="'.$titulo.'">';
+			}
+			?>
+		</div>
+		<div class="slider slider-nav">
+			<?php 
+			while ($img = $info_imagenes->fetch(PDO::FETCH_ASSOC)) {
+				echo '<img class="img-fluid contain" src="imagenes/'.$img['imagenes'].'" style="height: 420px;" alt="'.$titulo.'">';
+			}
+			?>
+		</div>
+	</div>
+	<div class="col-sm-6 w3-padding-64 mt-4">
+		<?php if ($Cantidad_Animales <= 1) { ?>
+			<p class="style-text-2" style="font-size: 2em;">Características de la mascota</p>
+		<?php } else { ?>
+			<p class="style-text-2 color-2" style="font-size: 2em;">Características de las mascotas</p>
+		<?php } ?>
+		<p class="style-text-2 color-2 text-publicacion"><span style="font-weight: bold;">Sexo</span>: <span class="w3-text-black"><?php echo $Icon_Sexo.' '.$Sexo; ?></span></p>
+		<p class="style-text-2 color-2 text-publicacion"><span style="font-weight: bold;">Edad:</span> <span class="w3-text-black"><?php echo $Edad_Animal.' '. $Meses_Years; ?></span></p>
+		<p class="style-text-2 color-2 text-publicacion"><span style="font-weight: bold;">Tamaño:</span> <span class="w3-text-black"><?php echo $Size; ?></span></p>
+		<?php if ($Cantidad_Animales <= 1) { ?>
+			<p class="style-text-2" style="font-size: 2em;">Información de la mascota</p>
+		<?php } else { ?>
+			<p class="style-text-2" style="font-size: 2em;">Información de las mascotas</p>
+		<?php } ?>
+
+		<p class="style-text-2 color-2 text-publicacion"><span style="font-weight: bold;">Castrado:</span> <span class="w3-text-black"><?php echo $Info_Castrado; ?></span></p>
+		<p class="style-text-2 color-2 text-publicacion"><span style="font-weight: bold;">Desparasitado:</span><span class="w3-text-black"> <?php echo $Info_Desparasitado; ?></span></p>
+		<p class="style-text-2 color-2 text-publicacion"><span style="font-weight: bold;">Vacunado:</span> <span class="w3-text-black"><?php echo $Info_Vacunado; ?></span></p>
+	</div>
+	
+	<div class="col-sm-12 text-center">
+		<p class="style-text-2 text-publicacion" style="font-size: 2em;">Descripción</p>
+		<div class="global">
+			<div class="mensajes style-text-2 text-publicacion">
+				<?php echo $Descripcion; ?>
+			</div>
+		</div>
+	</div>
+	<?php if (!empty($_SESSION['id'])) { ?>
+		<?php if ($Perdido == 0) {
+			if ($WhatsApp == 1) {
+				?>
+					<div class="text-center">
+						<a href="https://api.whatsapp.com/send?phone=<?php echo $Celular; ?>&text=Mensaje enviado desde el sitio web AdoptaYa! Hola <?php echo $Nombre; ?>, me llamo <?php echo $U_Name; ?>, estoy interesado en el <?php echo $Tipo_Animal ?> que publicaste." class="btn btn-lg style-text-2 publicar-btn mb-3 mt-3" target="_blank"><span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> QUIERO ADOPTARLO</a>
+					</div>
+
+			<?php } elseif ($WhatsApp == 0) { ?> 
+				<h3 class="style-text-2 w3-text-red">* Esta persona no dispone de whatsapp, pedimos que te comuniques con la misma mediante llamada o su correo electrónico.</h3>
+			<?php } 
+		} elseif ($Perdido == 1) {
+			if ($WhatsApp == 1) { ?>
+			<div class="text-center">
+				<a href="https://api.whatsapp.com/send?phone=<?php echo $Celular; ?>&text=Mensaje enviado desde el sitio web AdoptaYa! Hola <?php echo $Nombre; ?>, me llamo <?php echo $U_Name; ?>, se donde está el <?php echo $Tipo_Animal ?> que publicaste." class="btn btn-lg style-text-2 publicar-btn mb-3 mt-3" target="_blank"><span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> SÉ DONDE SE ENCUENTRA</a>
+			</div>
+			<?php } elseif ($WhatsApp == 0) { ?>
+				<h3 class="style-text-2 w3-text-red">* Esta persona no dispone de whatsapp, pedimos que te comuniques con la misma mediante llamada o su correo electrónico.</h3>
+				<?php
+			}
+		} ?>
+		<?php 
+	} else { 
+		if ($Perdido == 0) {
+			?>
+			<div class="text-center">
+				<a class="btn btn-lg style-text-2 publicar-btn mb-3 mt-3" href="/login">QUIERO ADOPTARLO</a>
+			</div>
+			<?php 	
+		} else { 
+			?>
+			<div class="text-center">
+				<a class="btn btn-lg style-text-2 publicar-btn mb-3 mt-3" href="/login">SÉ DONDE SE ENCUENTRA</a>
+			</div>
+			<?php 
+		}
+	}
+	?>
+
+</section>

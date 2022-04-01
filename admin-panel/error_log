@@ -1,0 +1,20 @@
+[17-Mar-2021 13:03:33 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/iy4qel5ji067/public_html/admin-panel/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/iy4qel5ji067/public_html/admin-panel/index.php on line 16
+[23-Mar-2021 15:46:45 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/iy4qel5ji067/public_html/admin-panel/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/iy4qel5ji067/public_html/admin-panel/index.php on line 16
+[23-Mar-2021 15:47:48 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/iy4qel5ji067/public_html/admin-panel/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/iy4qel5ji067/public_html/admin-panel/index.php on line 16
+[23-Mar-2021 15:48:51 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/iy4qel5ji067/public_html/admin-panel/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/iy4qel5ji067/public_html/admin-panel/index.php on line 16
+[23-Mar-2021 15:49:35 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/iy4qel5ji067/public_html/admin-panel/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/iy4qel5ji067/public_html/admin-panel/index.php on line 16

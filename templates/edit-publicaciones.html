@@ -1,0 +1,729 @@
+<?php 
+if (!empty($_GET['edit'])) {
+$ID_Publicacion = $_GET['edit'];
+	$get_info = $db->prepare("SELECT * FROM publicaciones_animales WHERE id=$ID_Publicacion");
+	$get_info->execute();
+
+	foreach ($get_info as $row) {
+		$Titulo = $row['Titulo'];
+		$User_ID = $row['User_ID'];
+		$TipoAnimal = $row['Tipo_Animal'];
+		$CantidadAnimales = $row['Cantidad_Animales'];
+		$Edad = $row['Edad_Animal'];
+		$MesesYears = $row['Meses_Years'];
+		$Sexo = $row['Sexo'];
+		$Size = $row['Size'];
+		$Castrado = $row['Castrado'];
+		$Desparasitado = $row['Desparasitado'];
+		$Vacunado = $row['Vacunado'];
+		$WhatsApp = $row['WhatsApp'];
+		$Descripcion = $row['Descripcion'];
+		$Barrio = $row['Barrio'];
+	}
+	if ($User_ID != $_SESSION['id']) {
+		echo $editMsgError = "<p class='w3-text-red default-font' style='font-weight: bold; font-size:1.3em;'><i class='fas fa-exclamation-triangle'></i> No puedes editar la publiación de otro usuario.</p><span class='text-right'><a class='btn ay-btn default-font' style='font-weight: bold; font-size:1.2em;' href='/mis-publicaciones'><i class='far fa-undo-alt'></i> Volver a mis publicaciones</a></span>";
+	} else {
+?>
+<section class="container-fluid w3-padding-64">
+	<h2 class="style-text-2 mb-3">Aquí obtendras toda la información de la publiación y podrás editarla</h2>
+	<form method="post">
+		<div class="row form-group">
+			<div class="col-sm-4">
+				<p class="style-text-2">Titulo</p>
+				<input type="text" name="edit_titulo" value="<?php echo $Titulo ?>" class="w3-input default-font">
+			</div>
+			<div class="col-sm-2">
+				<p class="default-font">¿Qué animal es?</p>
+					<?php 
+					switch ($TipoAnimal) {
+						case 'Gato':
+							echo '
+							<select name="edit_tipoAnimal" class="w3-input default-font">
+								<option value="Gato" selected>Gato</option>
+								<option value="Perro">Perro</option>
+							</select>
+							';
+							break;
+						case 'Perro':
+							echo '
+							<select name="edit_tipoAnimal" class="w3-input default-font">
+								<option value="Gato">Gato</option>
+								<option value="Perro" selected>Perro</option>
+							</select>
+							';
+							break;
+					} ?>
+			</div>		
+			<div class="col-sm-2">
+				<p class="default-font">¿Cuántos son?</p>
+					<?php 
+					switch ($CantidadAnimales) {
+						case '1':
+							echo '
+							<select name="edit_cantidadAnimales" class="w3-input default-font">
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6+">6+</option>
+							</select>
+							';
+							break;
+						case '2':
+							echo '
+							<select name="edit_cantidadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2" selected>2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6+">6+</option>
+							</select>
+							';
+							break;
+						case '3':
+							echo '
+							<select name="edit_cantidadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3" selected>3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6+">6+</option>
+							</select>
+							';
+							break;
+						case '4':
+							echo '
+							<select name="edit_cantidadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4" selected>4</option>
+								<option value="5">5</option>
+								<option value="6+">6+</option>
+							</select>
+							';
+							break;
+						case '5':
+							echo '
+							<select name="edit_cantidadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5" selected>5</option>
+								<option value="6+">6+</option>
+							</select>
+							';
+							break;
+						case '6+':
+							echo '
+							<select name="edit_cantidadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6+" selected>6+</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-1">
+				<p class="default-font">Edad</p>
+					<?php 
+					switch ($Edad) {
+						case 1:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1 selected">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 2:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2" selected>2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 3:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3" selected>3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 4:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4" selected>4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 5:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5" selected>5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 6:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6" selected>6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 7:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7" selected>7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 8:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8" selected>8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 9:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9" selected>9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 10:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10" selected>10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 11:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11" selected>11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 12:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12" selected>12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 13:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13" selected>13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 14:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14" selected>14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 15:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15" selected>15</option>
+								<option value="16">16</option>
+							</select>
+							';
+							break;
+						case 16:
+							echo '
+							<select name="edit_edadAnimales" class="w3-input default-font">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16" selected>16</option>
+							</select>
+							';
+							break;
+					}
+					 ?>
+			</div>
+			<div class="col-sm-3">
+				<p class="default-font">Meses / Años</p>
+					<?php 
+					switch ($MesesYears) {
+						case 'Meses':
+							echo '
+							<select name="edit_mesesYears" class="w3-input default-font">
+								<option value="Meses" selected>Meses</option>
+								<option value="Años">Años</option>
+							</select>
+							';
+							break;
+						case 'Años':
+							echo '
+							<select name="edit_mesesYears" class="w3-input default-font">
+								<option value="Meses" selected>Meses</option>
+								<option value="Años" selected>Años</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">Descripción</p>
+					<textarea id="whyAdopta" name="edit_whyAdopta" class="w3-input default-font" required><?php echo $Descripcion; ?></textarea>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">Sexo</p>
+					<?php 
+					switch ($Sexo) {
+						case 'Macho':
+							echo '
+							<select name="edit_sexoAnimal" class="w3-input default-font">
+								<option value="Macho" selected>Macho</option>
+								<option value="Hembra">Hembra</option>
+								<option value="Ambos">Ambos</option>
+							</select>
+							';
+							break;
+						case 'Hembra':
+							echo '
+							<select name="edit_sexoAnimal" class="w3-input default-font">
+								<option value="Macho">Macho</option>
+								<option value="Hembra" selected>Hembra</option>
+								<option value="Ambos">Ambos</option>
+							</select>
+							';
+							break;
+						case 'Ambos':
+							echo '
+							<select name="edit_sexoAnimal" class="w3-input default-font">
+								<option value="Macho">Macho</option>
+								<option value="Hembra">Hembra</option>
+								<option value="Ambos" selected>Ambos</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">Tamaño</p>
+					<?php 
+					switch ($Size) {
+						case 'Pequeño':
+							echo '
+							<select name="edit_sizeAnimal" class="w3-input default-font">
+								<option value="Pequeño" selected>Pequeño</option>
+								<option value="Mediano">Mediano</option>
+								<option value="Grande">Grande</option>
+							</select>
+							';
+							break;
+						case 'Mediano':
+							echo '
+							<select name="edit_sizeAnimal" class="w3-input default-font">
+								<option value="Pequeño">Pequeño</option>
+								<option value="Mediano" selected>Mediano</option>
+								<option value="Grande">Grande</option>
+							</select>
+							';
+							break;
+						case 'Grande':
+							echo '
+							<select name="edit_sizeAnimal" class="w3-input default-font">
+								<option value="Pequeño">Pequeño</option>
+								<option value="Mediano">Mediano</option>
+								<option value="Grande" selected>Grande</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">¿Está castrado/a?</p>
+					<?php 
+					switch ($Castrado) {
+						case 1:
+							echo '
+							<select name="edit_castradoAnimal" class="w3-input default-font">
+								<option value="1" selected>Sí</option>
+								<option value="0">No</option>
+								<option value="2">No tiene esa información</option>
+							</select>
+							';
+							break;
+						case 0:
+							echo '
+							<select name="edit_castradoAnimal" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0" selected>No</option>
+								<option value="2">No tiene esa información</option>
+							</select>
+							';
+							break;
+						case 2:
+							echo '
+							<select name="edit_castradoAnimal" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0">No</option>
+								<option value="2" selected>No tiene esa información</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">¿Está desparasitado/a?</p>
+					<?php 
+					switch ($Desparasitado) {
+						case 1:
+							echo '
+							<select name="edit_desparasitadoAnimal" class="w3-input default-font">
+								<option value="1" selected>Sí</option>
+								<option value="0">No</option>
+								<option value="2">No tiene esa información</option>
+							</select>
+							';
+							break;
+						case 0:
+							echo '
+							<select name="edit_desparasitadoAnimal" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0" selected>No</option>
+								<option value="2">No tiene esa información</option>
+							</select>
+							';
+							break;
+						case 2:
+							echo '
+							<select name="edit_desparasitadoAnimal" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0">No</option>
+								<option value="2" selected>No tiene esa información</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">¿Está vacunado?</p>
+					<?php 
+					switch ($Vacunado) {
+						case 1:
+							echo '
+							<select name="edit_vacunaAnimal" class="w3-input default-font">
+								<option value="1" selected>Sí</option>
+								<option value="0">No</option>
+								<option value="2">No tiene esa información</option>
+							</select>
+							';
+							break;
+						case 0:
+							echo '
+							<select name="edit_vacunaAnimal" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0" selected>No</option>
+								<option value="2">No tiene esa información</option>
+							</select>
+							';
+							break;
+						case 2:
+							echo '
+							<select name="edit_vacunaAnimal" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0">No</option>
+								<option value="2" selected>No tiene esa información</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">Barrio</p>
+					<input required type="text" value="<?php echo $Barrio; ?>" name="edit_barrioUsuario" class="w3-input default-font">
+			</div>
+			<div class="col-sm-3 mt-3">
+				<p class="default-font">¿Dispones de WhatsApp?</p>
+					<?php 
+					switch ($WhatsApp) {
+						case 1:
+							echo '
+							<select name="edit_whatsUsuario" class="w3-input default-font">
+								<option value="1" selected>Sí</option>
+								<option value="0">No</option>
+							</select>
+							';
+							break;
+						case 0:
+							echo '
+							<select name="edit_whatsUsuario" class="w3-input default-font">
+								<option value="1">Sí</option>
+								<option value="0" selected>No</option>
+							</select>
+							';
+							break;
+					}
+					?>
+			</div>
+		</div>
+		<div class="text-right mt-3">
+			<input type="submit" name="edit_publiacion" class="btn btn-lg ay-btn" value="Finalizar edición">
+		</div>
+		<?php echo $msgErrorEdición; ?>
+	</form>
+</section>
+
+<?php 
+	}
+}  ?>

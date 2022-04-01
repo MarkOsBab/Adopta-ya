@@ -1,0 +1,120 @@
+<div class="w3-padding-64 pt-2 pb-2">
+	<div class="container">
+		<h2 class="default-font text-center" style="font-size: 2.2em !important;">Bienvenido a Adopta ¡YA! <?php echo $U_Name; ?></h2>
+		<p class="default-font">Gracias por registrarte en Adopta ¡YA! y ayudar a todas esas mascotas que merecen un hogar cálido. A continuación te pediremos por favor que actives tu cuenta mediante el correo electrónico que ingresaste para registrarte para comenzar a adoptar o buscar tu mascota.</p>
+		<p class="default-font" style="font-weight: bold;">¿No has recibido el correo de activación? <a href="/reply/?replyMail=1&token=<?php echo $u_Token; ?>&id=<?php echo $u_ID; ?>">*Click aquí para reenviar</a></p>
+	</div>
+</div>
+
+<section class="container pt-5">
+	<h1 class="style-text-1">Últimas mascotas publicadas</h1>
+	<div class="row text-center no-gutter">
+		<?php 
+		/*/Busca datos /*/
+		$busca_ultimas_publicaciones = $db->prepare("SELECT * FROM publicaciones_animales ORDER BY id DESC LIMIT 4");
+		$busca_ultimas_publicaciones->execute();
+
+
+		foreach ($busca_ultimas_publicaciones as $row) {
+			$id = $row['id'];
+			$titulo = $row['Titulo'];
+			$fecha = $row['Fecha'];
+			$Sexo = $row['Sexo'];
+			$Edad_Animal = $row['Edad_Animal'];
+			$Meses_Years = $row['Meses_Years'];
+			$Castrado = $row['Castrado'];
+			$Desparasitado = $row['Desparasitado'];
+			$Vacunado = $row['Vacunado'];
+			$SizeAnimal = $row['Size'];
+			$Perdido = $row['Perdido'];
+
+			switch ($Sexo) {
+				case 'Macho':
+					$Icon_Sexo = '<i class="fas fa-mars"></i>';
+					break;
+				case 'Hembra':
+					$Icon_Sexo = '<i class="fas fa-venus"></i>';
+					break;	
+				default:
+					$Icon_Sexo = '<i class="fas fa-venus-mars"></i>';
+					break;
+			}
+			switch ($Castrado) {
+				case 1:
+					$Info_Castrado = "Sí";
+					break;
+				case 0:
+					$Info_Castrado = "No";
+					break;
+				case 2:
+					$Info_Castrado = "No dispone de esa información";
+					break;
+			}
+			switch ($Desparasitado) {
+				case 1:
+					$Info_Desparasitado = "Sí";
+					break;
+				case 0:
+					$Info_Desparasitado = "No";
+					break;
+				case 2:
+					$Info_Desparasitado = "No dispone de esa información";
+					break;
+			}
+			switch ($Vacunado) {
+				case 1:
+					$Info_Vacunado = "Sí";
+					break;
+				case 0:
+					$Info_Vacunado = "No";
+					break;
+				case 2:
+					$Info_Vacunado = "No dispone de esa información";
+					break;
+			}
+
+			$busca_ultimas_publicaciones_img = $db->prepare("SELECT * FROM publicaciones_imagenes WHERE ID_Publicacion='$id'");
+			$busca_ultimas_publicaciones_img->execute();
+		?>
+		<div class="column mb-3">
+			<div class="card">
+				<h3><?php echo $titulo; ?></h3>
+				<p>
+					<div class="slider slider-for">
+						<?php 
+						while ($img = $busca_ultimas_publicaciones_img->fetch(PDO::FETCH_ASSOC)) {
+						echo '<img src="../publicaciones/imagenes/'.$img['imagenes'].'" class="img-fluid contain" style="width: 240px;height: 150px;" alt="'.$titulo.'">';
+					}
+					?>
+				</div>
+			</p>
+			<p>
+				<table class="table text-left ml-3">
+					<tbody>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Sexo</td>
+							<td><?php echo $Icon_Sexo.' '.$Sexo; ?></td>
+						</tr>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Edad</td>
+							<td><?php echo $Edad_Animal.' '. $Meses_Years; ?></td>
+						</tr>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Tamaño</td>
+							<td><?php echo $SizeAnimal; ?></td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<p>
+				<?php if ($Perdido == 0) { ?>
+				<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="publicaciones/<?php echo $id; ?>">¡Quiero adoptarlo!</a>
+				<?php } else { ?>
+				<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="publicaciones/<?php echo $id; ?>">¡Sé donde se encuentra!</a>
+				<?php } ?>
+			</p>
+		</div>
+	</div>
+		<?php } ?>
+	</div>
+</section>

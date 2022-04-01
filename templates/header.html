@@ -1,0 +1,200 @@
+<?php
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $getData = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $getData = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $getData = $_SERVER['REMOTE_ADDR'];
+}
+
+$contaData = $db->prepare("SELECT COUNT(*) FROM cms_dinamic_app WHERE Data_IP='$getData'");
+$contaData->execute();
+$resultCountData = $contaData->fetchColumn();
+
+if ($resultCountData<=0) {
+    $saveData = $db->prepare("INSERT INTO cms_dinamic_app (Data_IP) VALUES ('$getData')");
+    $saveData->execute();
+}
+
+/*/ VARIABLES SESION /*/
+if(!empty($_SESSION['id'])) {
+$userDetails=$userClass->userDetails($session_id);
+$U_Name = $userDetails->Nombre;
+$U_Apellido = $userDetails->Apellido;
+$u_Correo = $userDetails->Correo;
+$U_Password = $userDetails->Password;
+$U_Departamento = $userDetails->Departamento;
+$u_ID = $userDetails->id;
+$u_Actived = $userDetails->Verificada;
+$u_Celular = $userDetails->Celular;
+$u_Token = $userDetails->Token_ID;
+$busca_user_admin = $db->prepare("SELECT COUNT(*) AS total FROM usuarios_administradores WHERE Admin_ID=".$_SESSION['id']." AND Rango_ID>0");
+$busca_user_admin->execute();
+$result_user_admin = $busca_user_admin->fetchColumn();
+
+$busca_profile_image = $db->prepare("SELECT * FROM usuarios_profile_images WHERE Token_ID='$u_Token'");
+$busca_profile_image->execute();
+$result_profile_image = $busca_profile_image->fetchAll();
+    foreach ($result_profile_image as $row) {
+        $Profile_Image = $row['Profile_Image'];
+    }
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script data-ad-client="ca-pub-5677906287029990" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JSVM3J5TYQ"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-JSVM3J5TYQ');
+	</script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?php echo $Title; ?></title>
+    <link rel="icon" type="image/png" href="../templates/static/images/icon.png"/>
+    <link rel="stylesheet" href="../templates/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../templates/static/css/mdb.min.css">
+    <link rel="stylesheet" href="../templates/static/css/fontawesome.css">
+    <link rel="stylesheet" href="../templates/static/css/w3.css">
+    <link rel="stylesheet" href="../templates/static/css/main.css">
+    <link rel="preconnect" href="https://fonts.g../templates/static.com">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../templates/static/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="../templates/static/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="../templates/static/css/opentip.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="description" content="Somos una página web con el objetivo de que las personas que quieran tener en sus hogares a una nueva mascota puedan hacerlo.">
+    <style type="text/css">
+        /* Formatting search box */
+        .search-box{
+            width: 300px;
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+        }
+        .search-box input[type="text"]{
+            height: 32px;
+            padding: 5px 10px;
+            border: 1px solid #CCCCCC;
+            font-size: 14px;
+        }
+        .result{
+            position: absolute;        
+            z-index: 999;
+            top: 100%;
+            left: 0;
+        }
+        .search-box input[type="text"], .result{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        /* Formatting result items */
+        .result p{
+            margin: 0;
+            padding: 7px 10px;
+            border: 1px solid #CCCCCC;
+            background-color: #fff;
+            border-top: none;
+            cursor: pointer;
+        }
+        .result p:hover{
+            background: #f2f2f2;
+        }
+        .contain {object-fit: contain;}
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>
+    <script>
+        function submitForm() {
+            document.getElementById('zoomForm').submit();
+        }
+    </script>
+</head>
+
+<body>
+    <a class="w3-hover-text-white" href="#">
+    <div class="back-top" id="backTop">
+        <i class="far fa-level-up fa-2x mt-2"></i>
+    </div>
+    </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #EEEEEE !important;">
+    <?php if (!empty($u_ID)) { ?>
+    <a data-aos="fade-down" data-aos-delay="100" class="navbar-brand" href="/">
+        <img class="am-logo" draggable="false" src="../templates/static/images/logo_test.png" alt="Logo">
+    </a>
+    <?php } else { ?>
+    <a data-aos="fade-down" data-aos-delay="100" class="navbar-brand" href="/">
+        <img class="am-logo" draggable="false" src="../templates/static/images/logo_test.png" alt="Logo">
+    </a>
+    <?php } ?>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <?php if (!empty($u_ID)) { ?>
+            <li data-aos="fade-down" data-aos-delay="200" class="nav-item">
+                <a class="nav-link" href="/"><i class="fad fa-home"></i> Inicio</a>    
+            </li>
+            <li class="nav-item dropdown show">
+                 <a data-aos="fade-down" data-aos-delay="300" class="nav-link dropdown-toggle" href="#" id="publicaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fal fa-plus-octagon"></i> Publica</a>
+                 <div class="dropdown-menu animate slideIn p-2" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/publicar"><i class="fal fa-plus-circle p-1"></i> Publica una mascota</a>
+                    <a class="dropdown-item" href="/publicar-perdido"><i class="fal fa-compass-slash p-1"></i> Publica una mascota perdida</a>
+                 </div>
+            </li>
+            <?php } else { ?>
+            <li data-aos="fade-down" data-aos-delay="200" class="nav-item">
+                <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Inicia sesión</a>
+            </li>
+            <?php } ?>
+            <li data-aos="fade-down" data-aos-delay="500" class="nav-item">
+                <a class="nav-link" href="/proyecto-proteccion-animal"><i class="fal fa-first-aid"></i> Proyecto de protección animal</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li data-aos="fade-down" data-aos-delay="600" class="nav-item mt-2">
+                <a class="nav-link" href="/donar"><i class="fal fa-hand-holding-usd"></i> Donar</a>
+            </li>
+        
+            
+            <?php if (!empty($u_ID)) { ?>
+            <li class="nav-item dropdown">
+                <a data-aos="fade-down" data-aos-delay="700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="img-fluid avatar" src="../templates/static/images/profile_images/<?php echo $Profile_Image; ?>">
+                </a>
+                 <div class="dropdown-menu dropdown-menu-right animate slideIn p-2" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/configurar-perfil"><i class="far fa-cogs p-1"></i> Configuración</a>
+                    <a class="dropdown-item" href="/cambiar-clave"><i class="far fa-lock-alt p-1"></i> Cambiar la contraseña</a>
+                    <?php if ($result_user_admin >= 1) { ?>
+                        <a class="dropdown-item" href="/admin-panel"><i class="fal fa-user-crown p-1"></i> Admin Panel</a>
+                    <?php } ?>
+                    <a class="dropdown-item" href="/logout"><i class="fal fa-sign-out p-1"></i> Cerrar sesión</a>
+                 </div>
+            </li>
+            <?php } else{} ?>
+        </ul>
+    </div>
+</nav>
+

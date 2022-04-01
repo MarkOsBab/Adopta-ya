@@ -1,0 +1,170 @@
+[09-Mar-2021 01:09:53 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 02:44:41 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 02:46:43 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 02:47:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 03:00:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 10:56:30 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 11:54:03 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 15:26:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 12:34:02 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 12:40:18 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 12:44:31 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 12:45:08 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 13:28:15 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 14:06:00 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 14:55:00 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 14:57:57 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 15:00:05 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 15:02:00 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 15:02:02 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 15:19:51 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 16:37:40 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 16:38:15 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 16:38:15 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:141
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(446): userClass->editUser('alicialarusa@gm...', '+598 93761541', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 141
+[09-Mar-2021 16:40:45 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 16:42:53 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 17:06:39 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 17:06:52 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 17:21:58 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 17:26:51 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 19:39:01 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 19:40:55 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 19:41:48 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[09-Mar-2021 22:27:45 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[10-Mar-2021 00:39:54 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[10-Mar-2021 08:09:08 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[10-Mar-2021 20:35:48 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 07:07:21 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 07:08:07 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 08:02:13 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 08:02:15 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 08:03:44 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 09:40:35 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 11:18:13 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 11:18:53 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 12:49:59 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 14:12:50 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 14:45:43 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 14:45:52 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 14:46:20 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 20:03:24 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 20:20:52 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 20:21:19 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[11-Mar-2021 20:21:19 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:141
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(448): userClass->editUser('starsol1979@gma...', '+598 94648634', 'Montevideo')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 141
+[11-Mar-2021 23:25:32 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:01:20 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:18:24 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:18:41 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:21:09 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:21:56 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:22:04 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:22:19 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:22:57 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:22:57 America/Montevideo] PHP Notice:  Trying to access array offset on value of type bool in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 492
+[12-Mar-2021 00:22:57 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x3c 0x3f in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:22:57 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): '/tmp/phpuLcckR' is not a valid JPEG file in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:22:57 America/Montevideo] PHP Warning:  imagejpeg() expects parameter 1 to be resource, bool given in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 510
+[12-Mar-2021 00:23:43 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:45:33 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:45:33 America/Montevideo] PHP Warning:  unlink(../templates/static/images/profile_images/a9df.phtml): No such file or directory in /home/iy4qel5ji067/public_html/classes/class.consultas.php on line 571
+[12-Mar-2021 00:45:33 America/Montevideo] PHP Notice:  Trying to access array offset on value of type bool in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 492
+[12-Mar-2021 00:45:33 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x3c 0x3f in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:45:33 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): '/tmp/php9HSLLL' is not a valid JPEG file in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:45:33 America/Montevideo] PHP Warning:  imagejpeg() expects parameter 1 to be resource, bool given in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 510
+[12-Mar-2021 00:45:54 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:45:54 America/Montevideo] PHP Warning:  unlink(../templates/static/images/profile_images/a862.png): No such file or directory in /home/iy4qel5ji067/public_html/classes/class.consultas.php on line 571
+[12-Mar-2021 00:45:54 America/Montevideo] PHP Notice:  Trying to access array offset on value of type bool in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 492
+[12-Mar-2021 00:45:54 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x3c 0x3f in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:45:54 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): '/tmp/phpbEOPYP' is not a valid JPEG file in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:45:54 America/Montevideo] PHP Warning:  imagejpeg() expects parameter 1 to be resource, bool given in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 510
+[12-Mar-2021 00:46:25 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:46:25 America/Montevideo] PHP Warning:  unlink(../templates/static/images/profile_images/6074.png): No such file or directory in /home/iy4qel5ji067/public_html/classes/class.consultas.php on line 571
+[12-Mar-2021 00:49:45 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 00:49:45 America/Montevideo] PHP Notice:  Trying to access array offset on value of type bool in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 492
+[12-Mar-2021 00:49:45 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x3c 0x3f in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:49:45 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): '/tmp/phpkfwfFh' is not a valid JPEG file in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 00:49:45 America/Montevideo] PHP Warning:  imagejpeg() expects parameter 1 to be resource, bool given in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 510
+[12-Mar-2021 01:17:14 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 01:21:57 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 01:21:57 America/Montevideo] PHP Warning:  unlink(../templates/static/images/profile_images/1601.php): No such file or directory in /home/iy4qel5ji067/public_html/classes/class.consultas.php on line 571
+[12-Mar-2021 01:21:57 America/Montevideo] PHP Notice:  Trying to access array offset on value of type bool in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 492
+[12-Mar-2021 01:21:57 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x3c 0x3f in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 01:21:57 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): '/tmp/phpgIWkgn' is not a valid JPEG file in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 01:21:57 America/Montevideo] PHP Warning:  imagejpeg() expects parameter 1 to be resource, bool given in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 510
+[12-Mar-2021 01:23:20 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[12-Mar-2021 01:23:20 America/Montevideo] PHP Warning:  unlink(../templates/static/images/profile_images/f694.php): No such file or directory in /home/iy4qel5ji067/public_html/classes/class.consultas.php on line 571
+[12-Mar-2021 01:23:20 America/Montevideo] PHP Notice:  Trying to access array offset on value of type bool in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 492
+[12-Mar-2021 01:23:20 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x3c 0x3f in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 01:23:20 America/Montevideo] PHP Warning:  imagecreatefromjpeg(): '/tmp/phpC7YOKN' is not a valid JPEG file in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 506
+[12-Mar-2021 01:23:20 America/Montevideo] PHP Warning:  imagejpeg() expects parameter 1 to be resource, bool given in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 510
+[12-Mar-2021 12:58:39 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[13-Mar-2021 09:14:03 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[13-Mar-2021 23:22:40 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[14-Mar-2021 17:43:04 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[14-Mar-2021 17:43:52 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[14-Mar-2021 17:43:52 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:141
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(448): userClass->editUser('lourdesfsantos@...', '+598 94572561', 'Montevideo')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 141
+[15-Mar-2021 02:18:34 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[17-Mar-2021 00:18:10 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[17-Mar-2021 00:21:46 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[19-Mar-2021 00:10:34 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[19-Mar-2021 08:49:33 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[20-Mar-2021 21:23:41 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[23-Mar-2021 10:50:32 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[23-Mar-2021 11:33:13 America/Montevideo] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ReCaptcha has a deprecated constructor in /home/iy4qel5ji067/public_html/classes/reCaptcha.php on line 42
+[24-Jun-2021 20:50:30 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('tamara.gonzalez...', '+598092938270', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144
+[24-Jun-2021 20:50:46 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('tamara.gonzalez...', '+598092938270', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144
+[24-Jun-2021 20:51:12 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('tamara.gonzalez...', '+598092938270', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144
+[24-Jun-2021 20:53:29 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('tamara.gonzalez...', '+598092938270', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144
+[26-Jun-2021 19:04:25 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('lmartinez250894...', '+598098237898', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144
+[07-Jul-2021 00:31:48 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('acevedomaria248...', '+598094296877', 'Canelones')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144
+[27-Oct-2021 21:20:29 America/Montevideo] PHP Fatal error:  Uncaught Error: Call to undefined function geoip_close() in /home/iy4qel5ji067/public_html/classes/class.functions.php:144
+Stack trace:
+#0 /home/iy4qel5ji067/public_html/classes/class.consultas.php(449): userClass->editUser('umpierrezc650@g...', '+598092814712', 'Montevideo')
+#1 /home/iy4qel5ji067/public_html/configurar-perfil/index.php(2): include('/home/iy4qel5ji...')
+#2 {main}
+  thrown in /home/iy4qel5ji067/public_html/classes/class.functions.php on line 144

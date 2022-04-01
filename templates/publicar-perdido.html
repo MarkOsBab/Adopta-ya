@@ -1,0 +1,164 @@
+<?php 
+if (empty($_SESSION['id'])) {
+	echo '
+	<script type="text/javascript">
+		window.location="?home";
+	</script>';
+} else {
+?>
+
+	<div class="container-fluid" data-aos="fade-in">
+		<h2 class="default-font text-center" style="font-size: 2.3em !important;">Publica tu mascota perdida</h2>
+		<p style="font-size: 1.2em;" class="text-center"><?php echo $U_Name; ?> lamentamos que hayas perdido a tu mascota, pero no te preocupes en Adopta Ya haremos lo posible para que vuelva a tu hogar.</p>
+		<?php if ($u_Actived == 0) { ?>
+			<p class="default-font w3-text-red"><i class="fas fa-exclamation-triangle"></i> Por favor para continuar te pedimos que actives tu cuenta, recuerda que cuando te registraste enviamos un email a tu correo electrónico, para activar tu cuenta solo haz click en el botón <span style="font-weight: bold;">*Activa tu cuenta*</span> dentro del correo electrónico que te hemos enviado.</p>
+		<?php } else { ?>
+			<form method="POST" enctype="multipart/form-data" id="publishPet">
+				<h2 class="default-font" style="font-size: 2.3em !important;">Características de la mascota</h2>
+				<div class="form-group row">
+					<div class="col-sm-12">
+						<p style="font-weight:bold;">Título de la publicación</p>
+						<input type="text" maxlength="40" name="titulo" class="w3-input default-font" placeholder="Título" required>
+					</div>
+					<div class="col-sm-6 mt-3">
+						<p style="font-weight:bold;">¿Qué animal es?</p>
+						<select id="tipoAnimal" name="tipoAnimal" class="w3-input default-font">
+							<option value="Gato">Gato</option>
+							<option value="Perro">Perro</option>
+						</select>
+					</div>
+					<div class="col-sm-6 mt-3">
+						<p style="font-weight:bold;">¿Cuántos son?</p>
+						<select id="cantidadAnimales" name="cantidadAnimales" class="w3-input default-font">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6+">6+</option>
+						</select>
+					</div>
+					<div class="col-sm-3 mt-3">
+						<p style="font-weight:bold;">Edad</p>
+						<select id="edadAnimales" name="edadAnimales" class="w3-input default-font">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+						</select>
+					</div>
+					<div class="col-sm-9 mt-3">
+						<p style="font-weight:bold;">Meses / Años</p>
+						<select id="mesesYears" name="mesesYears" class="w3-input default-font">
+							<option value="Meses">Meses</option>
+							<option value="Años">Años</option>
+						</select>
+					</div>
+					<div class="col-sm-6 mt-3">
+						<p style="font-weight:bold;">Sexo</p>
+						<select id="sexoAnimal" name="sexoAnimal" class="w3-input default-font">
+							<option value="Macho">Macho</option>
+							<option value="Hembra">Hembra</option>
+							<option value="Ambos">Ambos</option>
+						</select>
+					</div>	
+					<div class="col-sm-6 mt-3">
+						<p style="font-weight:bold;">Tamaño</p>
+						<select id="sizeAnimal" name="sizeAnimal" class="w3-input default-font">
+							<option value="Pequeño">Pequeño</option>
+							<option value="Mediano">Mediano</option>
+							<option value="Grande">Grande</option>
+						</select>
+					</div>
+					<div class="col-sm-4 mt-3">
+						<p style="font-weight:bold;">¿Está castrado/a?</p>
+						<select id="castradoAnimal" name="castradoAnimal" class="w3-input default-font">
+							<option value="1">Sí</option>
+							<option value="0">No</option>
+							<option value="2">No tiene esa información</option>
+						</select>
+					</div>
+					<div class="col-sm-4 mt-3">
+						<p style="font-weight:bold;">¿Está desparasitado/a?</p>
+						<select id="desparasitadoAnimal" name="desparasitadoAnimal" class="w3-input default-font">
+							<option value="1">Sí</option>
+							<option value="0">No</option>
+							<option value="2">No tiene esa información</option>
+						</select>
+					</div>
+					<div class="col-sm-4 mt-3">
+						<p style="font-weight:bold;">¿Está vacunado?</p>
+						<select id="vacunaAnimal" name="vacunaAnimal" class="w3-input default-font">
+							<option value="1">Sí</option>
+							<option value="0">No</option>
+							<option value="2">No tiene esa información</option>
+						</select>
+					</div>
+					<div class="col-sm-12 mt-3">
+						<p style="font-weight:bold;">Describe sus características</p>
+						<textarea id="whyAdopta" name="whyAdopta" class="w3-input default-font" required placeholder="Describe las características de la mascota"></textarea>
+					</div>
+				</div>
+				<div class="form-group row">
+					<h2 class="default-font" style="font-size: 2.3em !important;">Contacto</h2>
+					<p>A continuación te pediremos unos datos para contactarnos contigo y así podrás encontrar a tu mascota más fácilmente.</p>
+				</div>
+				<div class="form-group row mt-3">
+					<div class="col-sm-4">
+						<p style="font-weight:bold;">Departamento</p>
+						<?php include 'u_depto.html'; ?>
+					</div>
+					<div class="col-sm-4">
+						<p style="font-weight:bold;">Barrio / Localidad</p>
+						<div id="localidades"></div>
+					</div>
+					<div class="col-sm-4">
+						<p style="font-weight:bold;">¿Dispones de WhatsApp?</p>
+						<select id="whatsUsuario" name="whatsUsuario" class="w3-input default-font">
+							<option value="1">Sí</option>
+							<option value="0">No</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group row mt-3">
+					<h2 class="default-font" style="font-size: 2.3em !important;">Fotos</h2>
+					<p>Recuerda publicar fotos para que las personas puedan verlo. <span class="w3-text-red" style="font-weight: bold;">*Máximo de 6 fotos*</span></p>
+					<div class="col-sm-4">
+						<p style="font-weight:bold;">Subir fotos</p>
+						<input type="file" accept="image/*" id="imagen" name="imagen[]" required multiple class="w3-input custom-file-input default-font">
+					</div>
+					<div id="dvPreview"></div>
+					<input type="text" name="idUser" id="idUser" hidden value="<?php echo $u_ID; ?>">
+					<input type="text" name="perdido" hidden="" value="1">
+				</div>
+				<div class="mt-3 mb-3 text-center">
+					<button type="submit" name="addAnimal" class="btn btn-lg publicar-btn border-radius" onsubmit="fun()"><span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Publicar nueva mascota</button>
+				</div>
+				<?php echo $errorMsgPublicar; ?>
+			</form>
+			<script type="text/javascript">
+				function myFunction() { 
+	                var x =  
+	                    document.getElementById( 
+	                      "imagen").required; 
+	                document.getElementById("demo").innerHTML = x; 
+	            } 
+			</script>
+		<?php } ?>
+	</div>
+
+<?php 
+}
+?>

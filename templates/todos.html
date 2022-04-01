@@ -1,0 +1,293 @@
+<section class="container-fluid w3-padding-64">
+	<h2 class="style-text-2">Todos los publicados</h2>
+
+	<div class="search-box m-3">
+		<form method="post">
+			<div class="form-group row">
+				<div class="col-sm-8">
+					<input class="w3-input" type="text" autocomplete="off" name="barrio_result" placeholder="Busca por barrio" />
+					<div class="result"></div>
+				</div>
+				<div class="col-sm-4">
+					<input class="btn ay-btn my-2 my-sm-0" type="submit" name="busca_barrio_todos" value="Buscar">
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="row text-center no-gutter">
+		<?php 
+		if (!empty($_POST['busca_barrio_todos'])) {
+
+			$barrio = $_POST['barrio_result'];
+			$_BS['bypage'] = 6;
+
+			$count_todos = $db->prepare("SELECT COUNT(*) AS total FROM `publicaciones_animales` WHERE Localidad LIKE '%$barrio%'");
+			$count_todos->execute();
+			$total = $count_todos->fetchColumn();
+			$paginas =  (($total % $_BS['bypage']) > 0) ? (int)($total / $_BS['bypage']) + 1 : ($total / $_BS['bypage']);
+
+			if (isset($_GET['page'])) {
+				$pagina = (int)$_GET['page'];
+			} else {
+				$pagina = 1;
+			}
+
+			$pagina = max(min($paginas, $pagina), 1);
+			$inicio = ($pagina - 1) * $_BS['bypage'];
+			if($total > 0){
+				$sql = $db->prepare("SELECT * FROM `publicaciones_animales` WHERE Localidad LIKE '%$barrio%' ORDER BY `id` DESC LIMIT ".$inicio.", ".$_BS['bypage']);
+				$sql->execute();
+				$resultado = $sql->fetchAll();
+				foreach ($resultado as $row) {
+					$id = $row['id'];
+					$titulo = $row['Titulo'];
+					$fecha = $row['Fecha'];
+					$Sexo = $row['Sexo'];
+					$Edad_Animal = $row['Edad_Animal'];
+					$Meses_Years = $row['Meses_Years'];
+					$Castrado = $row['Castrado'];
+					$Desparasitado = $row['Desparasitado'];
+					$Vacunado = $row['Vacunado'];
+					$SizeAnimal = $row['Size'];
+					$Perdido = $row['Perdido'];
+					$Visible = $row['Visible'];
+					switch ($Sexo) {
+						case 'Macho':
+						$Icon_Sexo = '<i class="fas fa-mars"></i>';
+						break;
+						case 'Hembra':
+						$Icon_Sexo = '<i class="fas fa-venus"></i>';
+						break;	
+						default:
+						$Icon_Sexo = '<i class="fas fa-venus-mars"></i>';
+						break;
+					}
+					switch ($Castrado) {
+						case 1:
+						$Info_Castrado = "Sí";
+						break;
+						case 0:
+						$Info_Castrado = "No";
+						break;
+						case 2:
+						$Info_Castrado = "No dispone de esa información";
+						break;
+					}
+					switch ($Desparasitado) {
+						case 1:
+						$Info_Desparasitado = "Sí";
+						break;
+						case 0:
+						$Info_Desparasitado = "No";
+						break;
+						case 2:
+						$Info_Desparasitado = "No dispone de esa información";
+						break;
+					}
+					switch ($Vacunado) {
+						case 1:
+						$Info_Vacunado = "Sí";
+						break;
+						case 0:
+						$Info_Vacunado = "No";
+						break;
+						case 2:
+						$Info_Vacunado = "No dispone de esa información";
+						break;
+					}
+					$busca_ultimas_publicaciones_img = $db->prepare("SELECT * FROM publicaciones_imagenes WHERE ID_Publicacion='$id'");
+					$busca_ultimas_publicaciones_img->execute();
+
+
+					?>
+					<?php if ($Visible==0) { ?>
+					<div class="column mb-3">
+			<div class="card">
+				<h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;"><?php echo $titulo; ?></h3>
+				<p>
+					<div class="slider slider-for">
+						<?php 
+						while ($img = $busca_ultimas_publicaciones_img->fetch(PDO::FETCH_ASSOC)) {
+						echo '<img src="../publicaciones/imagenes/'.$img['imagenes'].'" class="img-fluid contain" style="width: 240px;height: 150px;" alt="'.$titulo.'">';
+					}
+					?>
+				</div>
+			</p>
+			<p>
+				<table class="table text-left ml-3">
+					<tbody>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Sexo</td>
+							<td><?php echo $Icon_Sexo.' '.$Sexo; ?></td>
+						</tr>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Edad</td>
+							<td><?php echo $Edad_Animal.' '. $Meses_Years; ?></td>
+						</tr>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Tamaño</td>
+							<td><?php echo $SizeAnimal; ?></td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<p>
+				<?php if ($Perdido == 0) { ?>
+				<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="/publicaciones/<?php echo $id; ?>">¡Quiero adoptarlo!</a>
+				<?php } else { ?>
+				<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="/publicaciones/<?php echo $id; ?>">¡Sé donde se encuentra!</a>
+				<?php } ?>
+			</p>
+		</div>
+	</div>
+				<?php } else {echo "";} ?>
+				<?php }
+			} else {
+				echo  "<p>No se encuentran mascotas en este barrio <a href='/todos' class='nav-link w3-text-blue w3-hover-text-green'>Ver todos</a></p>";
+			} ?>
+<div class="text-center">
+	<a href="/todos" class="btn publicar-btn">Ver todos</a>
+</div>
+		</section>
+
+		<?php 
+	} else {
+		?>
+		<?php 
+		$_BS['bypage'] = 6;
+
+		$count_todos = $db->prepare("SELECT COUNT(*) AS total FROM `publicaciones_animales`");
+		$count_todos->execute();
+		$total = $count_todos->fetchColumn();
+
+		$paginas =  (($total % $_BS['bypage']) > 0) ? (int)($total / $_BS['bypage']) + 1 : ($total / $_BS['bypage']);
+
+		if (isset($_GET['page'])) {
+			$pagina = (int)$_GET['page'];
+		} else {
+			$pagina = 1;
+		}
+
+		$pagina = max(min($paginas, $pagina), 1);
+		$inicio = ($pagina - 1) * $_BS['bypage'];
+		$sql = $db->prepare("SELECT * FROM `publicaciones_animales` ORDER BY `id` DESC LIMIT ".$inicio.", ".$_BS['bypage']);
+		$sql->execute();
+		$resultado = $sql->fetchAll();
+
+		foreach ($resultado as $row) {
+			$id = $row['id'];
+			$titulo = $row['Titulo'];
+			$fecha = $row['Fecha'];
+			$Sexo = $row['Sexo'];
+			$Edad_Animal = $row['Edad_Animal'];
+			$Meses_Years = $row['Meses_Years'];
+			$Castrado = $row['Castrado'];
+			$Desparasitado = $row['Desparasitado'];
+			$Vacunado = $row['Vacunado'];
+			$SizeAnimal = $row['Size'];
+			$Perdido = $row['Perdido'];
+			$Visible = $row['Visible'];
+			switch ($Sexo) {
+				case 'Macho':
+				$Icon_Sexo = '<i class="fas fa-mars"></i>';
+				break;
+				case 'Hembra':
+				$Icon_Sexo = '<i class="fas fa-venus"></i>';
+				break;	
+				default:
+				$Icon_Sexo = '<i class="fas fa-venus-mars"></i>';
+				break;
+			}
+			switch ($Castrado) {
+				case 1:
+				$Info_Castrado = "Sí";
+				break;
+				case 0:
+				$Info_Castrado = "No";
+				break;
+				case 2:
+				$Info_Castrado = "No dispone de esa información";
+				break;
+			}
+			switch ($Desparasitado) {
+				case 1:
+				$Info_Desparasitado = "Sí";
+				break;
+				case 0:
+				$Info_Desparasitado = "No";
+				break;
+				case 2:
+				$Info_Desparasitado = "No dispone de esa información";
+				break;
+			}
+			switch ($Vacunado) {
+				case 1:
+				$Info_Vacunado = "Sí";
+				break;
+				case 0:
+				$Info_Vacunado = "No";
+				break;
+				case 2:
+				$Info_Vacunado = "No dispone de esa información";
+				break;
+			}
+
+			$busca_ultimas_publicaciones_img = $db->prepare("SELECT * FROM publicaciones_imagenes WHERE ID_Publicacion='$id'");
+			$busca_ultimas_publicaciones_img->execute();
+			?>
+			<?php if ($Visible==0) { ?>
+			<div class="column mb-3">
+			<div class="card">
+				<h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;"><?php echo $titulo; ?></h3>
+				<p>
+					<div class="slider slider-for">
+						<?php 
+						while ($img = $busca_ultimas_publicaciones_img->fetch(PDO::FETCH_ASSOC)) {
+						echo '<img src="../publicaciones/imagenes/'.$img['imagenes'].'" class="img-fluid contain" style="width: 240px;height: 150px;" alt="'.$titulo.'">';
+					}
+					?>
+				</div>
+			</p>
+			<p>
+				<table class="table text-left ml-3">
+					<tbody>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Sexo</td>
+							<td><?php echo $Icon_Sexo.' '.$Sexo; ?></td>
+						</tr>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Edad</td>
+							<td><?php echo $Edad_Animal.' '. $Meses_Years; ?></td>
+						</tr>
+						<tr class="style-text-2">
+							<td scope="row" style="font-weight: bold; font-size: 1.2em;">Tamaño</td>
+							<td><?php echo $SizeAnimal; ?></td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<p>
+				<?php if ($Perdido == 0) { ?>
+				<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="/publicaciones/<?php echo $id; ?>">¡Quiero adoptarlo!</a>
+				<?php } else { ?>
+				<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="/publicaciones/<?php echo $id; ?>">¡Sé donde se encuentra!</a>
+				<?php } ?>
+			</p>
+		</div>
+	</div>
+		<?php } else{echo "";} ?>
+		<?php } ?>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<?php 
+				if ($total > 0) {
+					for($n = 1; $n <= $paginas; $n++) {
+						echo '<li class="page-item"><a class="page-link" href="?page='.$n.'">'.$n.'</a></li>';
+					}
+				}
+				?>
+			</ul>
+		</nav>
+	</section>
+	<?php } ?>

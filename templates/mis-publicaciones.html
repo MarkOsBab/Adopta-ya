@@ -1,0 +1,67 @@
+<section class="container-fluid w3-padding-64">
+  <?php
+  $db = getDB();
+  $conta_mis_publicaciones = $db->prepare("SELECT COUNT(id) FROM publicaciones_animales WHERE User_ID=".$_SESSION['id']."");
+	$conta_mis_publicaciones->execute();
+	$result_mis_publicaciones = $conta_mis_publicaciones->fetchColumn();
+   if ($result_mis_publicaciones > 0) { ?>
+	<h2 class="style-text-2"><?php echo $U_Name; ?> mira tus publicaciones</h2>
+	<p class="style-text-2 color-2">* Por favor pedimos a todos nuestros usuarios que realizan publicaciones que las mascotas que ya han sido adoptadas o rescatadas las eliminen para no sobrecargar la página.</p>
+	<div id="resultado">
+	<?php include 'consult.php'; ?>
+
+	</div>
+	<?php } else { ?>
+		<h2 class="style-text-2"><?php echo $U_Name; ?> aún no has realizado publicaciones</h2>
+	<?php } ?>
+</section>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+function objetoAjax(){
+ var xmlhttp=false;
+ try {
+ xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+ } catch (e) {
+ try {
+ xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+ } catch (E) {
+ xmlhttp = false;
+ }
+ }
+ if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+   xmlhttp = new XMLHttpRequest();
+   }
+   return xmlhttp;
+}
+function eliminarDato(id){
+   //donde se mostrará el resultado de la eliminacion
+   divResultado = document.getElementById('resultado');
+   //usaremos un cuadro de confirmacion 
+   var eliminar = alertify.confirm('',"¿Desea eliminar la publicación seleccionada?",
+	  function(e) {
+	  	if (e) {
+	  		alertify.success('Acción confirmada');
+	  		//instanciamos el objetoAjax
+			   ajax=objetoAjax();
+			   //uso del medotod GET
+			   //indicamos el archivo que realizará el proceso de eliminación
+			   //junto con un valor que representa el id del empleado
+			   ajax.open("GET", "del-public.php?publicacion="+id);
+			   ajax.onreadystatechange=function() {
+			   if (ajax.readyState==4) {
+			   //mostrar resultados en esta capa
+			   console.log(divResultado.innerHTML = ajax.responseText);
+			   }
+			   }
+			   //como hacemos uso del metodo GET
+			   //colocamos null
+			   ajax.send(null)
+	  	}
+	  },
+	  function(s) {
+	  	if (s) {alertify.error('Acción cancelada');}
+	  }
+	).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
+   
+}
+</script>

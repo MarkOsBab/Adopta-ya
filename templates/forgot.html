@@ -1,0 +1,18 @@
+<div class="w3-padding-64 pt-2 pb-2">
+	<div class="container">
+		<h2 class="default-font text-center" style="font-size: 2.3em !important;">¿Has olvidado tu  contraseña?</h2>
+		<p class="default-font">No te preocupes tenemos la solución a eso, solo debes ingresar tu correo electrónico y nosotros te enviaremos un link para recuperar tu contraseña.</p>
+		<p class="default-font" style="font-weight: bold;">*A continuación te pediremos que ingreses el correo electrónico con el que te registraste para poder ayudarte.</p>
+		<form method="post">
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<input type="text" name="recup_correo" id="recup_correo" class="w3-input" autocomplete="false" placeholder="Correo electrónico">
+				</div>
+				<div class="col-sm-3">
+					<input type="submit" name="recup_send" class="btn w3-block ay-btn" value="Recuperar mi cuenta">
+				</div>
+				<?php echo $errorMsgRecover; ?>
+			</div>
+		</form>
+	</div>
+</div>

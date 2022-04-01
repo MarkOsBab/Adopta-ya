@@ -1,0 +1,125 @@
+<?php 
+$ContaVisitas = $db->prepare("SELECT * FROM cms_dinamic_app WHERE Data_IP='$getData'");
+$ContaVisitas->execute();
+$resultVisitas = $ContaVisitas->fetchAll();
+
+foreach ($resultVisitas as $row) {
+	$Visitas_Gatos = $row['Visit_Gatos'];
+	$Visitas_Perros = $row['Visit_Perros'];
+	$Visitas_Adopcion = $row['Visit_Adopcion'];
+	$Visitas_Perdidos = $row['Visit_Perdidos'];
+}
+
+if ($Visitas_Perdidos == 0 || $Visitas_Perdidos== 0 || $Visitas_Gatos == 0 || $Visitas_Perros == 0) {
+	/*/Busca datos /*/
+		$busca_ultimas_publicaciones = $db->prepare("SELECT * FROM publicaciones_animales ORDER BY id DESC LIMIT 4");
+		$busca_ultimas_publicaciones->execute();
+
+		$contaPublicaciones = $db->prepare("SELECT COUNT(*) FROM publicaciones_animales");
+		$contaPublicaciones->execute();
+		$resultContaPublicaciones = $contaPublicaciones->fetchColumn();
+
+		if ($resultContaPublicaciones>0) {
+		?>
+		<section>
+			    <div class="container-fluid">
+			        <div class="row text-center no-gutter">
+					<h1 class="style-text-1 color-2 pt-5 text-center"><b>Todas las publicaciones</b></h1>
+		<?php 
+		foreach ($busca_ultimas_publicaciones as $row) {
+			$id = $row['id'];
+			$titulo = $row['Titulo'];
+			$fecha = $row['Fecha'];
+			$Sexo = $row['Sexo'];
+			$Edad_Animal = $row['Edad_Animal'];
+			$Meses_Years = $row['Meses_Years'];
+			$Castrado = $row['Castrado'];
+			$Desparasitado = $row['Desparasitado'];
+			$Vacunado = $row['Vacunado'];
+			$SizeAnimal = $row['Size'];
+			$Perdido = $row['Perdido'];
+			$Visible = $row['Visible'];
+			$Tipo_Animal = $row['Tipo_Animal'];
+			$Localidad = $row['Localidad'];
+
+			switch ($Sexo) {
+				case 'Macho':
+					$Icon_Sexo = '<i class="fas fa-mars"></i>';
+					break;
+				case 'Hembra':
+					$Icon_Sexo = '<i class="fas fa-venus"></i>';
+					break;	
+				default:
+					$Icon_Sexo = '<i class="fas fa-venus-mars"></i>';
+					break;
+			}
+			switch ($Castrado) {
+				case 1:
+					$Info_Castrado = "Sí";
+					break;
+				case 0:
+					$Info_Castrado = "No";
+					break;
+				case 2:
+					$Info_Castrado = "No dispone de esa información";
+					break;
+			}
+			switch ($Desparasitado) {
+				case 1:
+					$Info_Desparasitado = "Sí";
+					break;
+				case 0:
+					$Info_Desparasitado = "No";
+					break;
+				case 2:
+					$Info_Desparasitado = "No dispone de esa información";
+					break;
+			}
+			switch ($Vacunado) {
+				case 1:
+					$Info_Vacunado = "Sí";
+					break;
+				case 0:
+					$Info_Vacunado = "No";
+					break;
+				case 2:
+					$Info_Vacunado = "No dispone de esa información";
+					break;
+			}
+
+			$busca_ultimas_publicaciones_img = $db->prepare("SELECT * FROM publicaciones_imagenes WHERE ID_Publicacion='$id'");
+			$busca_ultimas_publicaciones_img->execute();
+			?>
+			<?php if ($Visible == 0) { ?>
+			<div class="column">
+		    <div class="card">
+		      <h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;"><?php echo $titulo; ?></h3>
+		      <label class="style-text-2"><?php echo $Localidad; ?></label>
+		      <p>
+		      	<div class="slider slider-for">
+					<?php 
+						while ($img = $busca_ultimas_publicaciones_img->fetch(PDO::FETCH_ASSOC)) {
+							echo '<img src="publicaciones/imagenes/'.$img['imagenes'].'" class="img-fluid contain" style="width: 240px;height: 150px;">';
+						}
+					?>
+				</div>
+			   </p>
+		      <p>
+		      	<?php if ($Perdido == 0) { ?>
+					<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="publicaciones/<?php echo $id; ?>">¡Quiero adoptarlo!</a>
+				<?php } else { ?>
+					<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="publicaciones/<?php echo $id; ?>">¡Sé donde se encuentra!</a>
+				<?php } ?>
+		      </p>
+		    </div>
+		  </div>
+		<?php 
+		}
+		}
+	} ?>
+	</div>
+	</div>
+</section>
+<?php 
+}else{}
+?>

@@ -1,0 +1,212 @@
+<section class="container-fluid header_bg">
+    <div data-aos="zoom-out" class="row">
+        <div class="col-md-12 text-center title">
+            <div class="w3-text-white text-right">
+                <h1 class="style-text-1" style="font-size: 3em;"><span class="w3-white p-1">¿Formas parte de una protectora o un refugio animal?</span></h1>
+                <h6 class="w3-text-white"><span class="w3-white">Pedimos ayuda a las protectoras y a los refugios para poder llevar a cabo una reunión por ZOOM</span></h6>
+                <a class="btn ay-btn btn-lg style-text-2" href="/reunion-zoom">¡Más información!</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<?php 
+include 'nav_categorias.html';
+?>
+
+<?php if (!empty($_SESSION['id'])) { ?>
+<section class="container-fluid w3-padding-16">
+	<div class="row text-center no-gutter">
+		<div class="col-md-12">
+			<h1 class="style-text-1 color-2 text-center"><i class="fad fa-plus-octagon"></i> ¿Quieres realizar una nueva publicación?</h1>
+			<h4 class="style-text-2">Para hacerlo solo debes dar click en el botón de abajo y completar los campos que te pedimos!</h4>
+			<div class="col-md-12">
+				<a href="/publicar" class="btn ay-btn style-text-2 btn-lg">¡Click aquí para publicar!</a>
+			</div>
+		</div>
+	</div>
+</section>
+<?php } else { ?>
+<section class="container-fluid w3-padding-16 item-serv mt-3">
+	<div class="row text-center no-gutter">
+		<div class="col-md-12">
+			<h1 class="style-text-1 color-2 text-center">¿Cómo empiezo?</h1>
+			<p style="font-size: 1.1em;">Para comenzar en Adopta YA debes registrarte haciendo click en el botón de abajo, luego comenzarás a publicar, no te preocupes, es gratis.</p>
+			<div class="col-md-12">
+				<a href="/login" class="btn btn-lg publicar-btn mt-2">Registrarse o Iniciar sesión</a>
+			</div>
+		</div>
+	</div>
+</section>
+<?php } ?>
+<?php include 'publicaciones.html'; ?>
+
+<section data-aos="zoom-out" class="container-fluid w3-padding-32">
+	<div class="row pt-5 text-center no-gutter">
+		<div class="col-md-6 offset-md-1 align-self-center">
+			<h1 class="style-text-1 color-2"><b>Adopta y ayuda</b></h1>
+			<p style="font-size: 1.1em;">En Adopta YA buscamos que cada mascota pueda ser salvada y rescatada para tener un nuevo hogar. Intentamos que el proceso de adopción sea rápido y eficaz para que sea cómodo tanto para los usuarios como para las mascotas.</p>
+		</div>
+		<div class="col-md-4 pb-5">
+			<img src="templates/static/images/dog-cat.jpg" width="350" class="img-fluid rounded-pill border-blue">
+		</div>
+	</div>
+</section>
+
+<?php  if ($resultCountData >=1) { include 'para_ti.html'; } ?>
+
+<section data-aos="fade-up" data-aos-duration="200" class="pb-5">
+    <div class="container">
+        <div class="row text-center no-gutter">
+            <div data-aos="zoom-in" data-aos-delay="300" class="col-md-12">
+                <h1 class="style-text-1 color-2 p-5 text-center"><b>¿Qué es lo que hacemos?</b></h1>
+                <p class="pb-5" style="font-size: 1.1em;">Intentamos hacer conciencia y buscamos que entre los ciudadanos uruaguayos se solidarizen para que cada una de las mascotas que peor lo pasan, ya sea que esten en las calles o en un hogar donde no puedan mantenerla puedan tener un hogar acogedor y cálido.</p>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="400" class="col-md-4 d-flex text-center my-3">
+                <div class="item-serv">
+                    <i class="far fa-hand-heart fa-3x rounded-circle border-blue p-2"></i>
+                    <h3 class="style-text-2 p-2 color-2">Cuidado</h3>
+                    <p class="text-dark style-text-1" style="font-size: 1.2em;">Queremos que cada una de las mascotas publicadas en Adopta YA luego de adoptarlas sean cuidadas y queridas.</p>
+                </div>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="500" class="col-md-4 d-flex text-center my-3">
+                <div class="item-serv">
+                    <i class="fal fa-tachometer-fastest fa-3x rounded-circle border-blue p-2"></i>
+                    <h3 class="style-text-2 p-2 color-2">Efiacacia</h3>
+                    <p class="text-dark style-text-1" style="font-size: 1.2em;">Los procesos de adopción son tanto rápidos como eficaces. Queremos que esto sea un proceso corto para que las mascotas que lo necesitan obtengan un hogar cuanto antes.</p>
+                </div>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="600" class="col-md-4 d-flex text-center my-3">
+                <div class="item-serv">
+                    <i class="fal fa-hands-heart fa-3x rounded-circle border-blue p-2"></i>
+                    <h3 class="style-text-2 p-2 color-2">Responsabilidad</h3>
+                    <p class="text-dark style-text-1" style="font-size: 1.2em;">Pedimos a las personas que publican sus mascotas en adopción que sean responsables y que hagan de la adopción un lindo proceso para ambas partes. Tambien pedimos a los adoptantes que cuiden adecuadamente a la mascota adoptada.</p>
+                </div>
+            </div>
+    </div>
+</section>
+<?php if ($result_count >= 1) { ?>
+<section class="container-fluid pt-5 pb-3">
+	<h1 class="style-text-1 text-center">Últimas mascotas publicadas</h1>
+	<div class="row text-center no-gutter">
+		<?php 
+		/*/Busca datos /*/
+		$busca_ultimas_publicaciones = $db->prepare("SELECT * FROM publicaciones_animales ORDER BY id DESC LIMIT 4");
+		$busca_ultimas_publicaciones->execute();
+
+
+		foreach ($busca_ultimas_publicaciones as $row) {
+			$id = $row['id'];
+			$titulo = $row['Titulo'];
+			$fecha = $row['Fecha'];
+			$Sexo = $row['Sexo'];
+			$Edad_Animal = $row['Edad_Animal'];
+			$Meses_Years = $row['Meses_Years'];
+			$Castrado = $row['Castrado'];
+			$Desparasitado = $row['Desparasitado'];
+			$Vacunado = $row['Vacunado'];
+			$SizeAnimal = $row['Size'];
+			$Perdido = $row['Perdido'];
+			$Visible = $row['Visible'];
+			$Tipo_Animal = $row['Tipo_Animal'];
+			
+
+			switch ($Sexo) {
+				case 'Macho':
+					$Icon_Sexo = '<i class="fas fa-mars"></i>';
+					break;
+				case 'Hembra':
+					$Icon_Sexo = '<i class="fas fa-venus"></i>';
+					break;	
+				default:
+					$Icon_Sexo = '<i class="fas fa-venus-mars"></i>';
+					break;
+			}
+			switch ($Castrado) {
+				case 1:
+					$Info_Castrado = "Sí";
+					break;
+				case 0:
+					$Info_Castrado = "No";
+					break;
+				case 2:
+					$Info_Castrado = "No dispone de esa información";
+					break;
+			}
+			switch ($Desparasitado) {
+				case 1:
+					$Info_Desparasitado = "Sí";
+					break;
+				case 0:
+					$Info_Desparasitado = "No";
+					break;
+				case 2:
+					$Info_Desparasitado = "No dispone de esa información";
+					break;
+			}
+			switch ($Vacunado) {
+				case 1:
+					$Info_Vacunado = "Sí";
+					break;
+				case 0:
+					$Info_Vacunado = "No";
+					break;
+				case 2:
+					$Info_Vacunado = "No dispone de esa información";
+					break;
+			}
+
+			$busca_ultimas_publicaciones_img = $db->prepare("SELECT * FROM publicaciones_imagenes WHERE ID_Publicacion='$id'");
+			$busca_ultimas_publicaciones_img->execute();
+		?>
+		<?php if ($Visible == 0) { ?>
+			<div class="column mb-3">
+				<div class="card">
+					<h3 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 250px;"><?php echo $titulo; ?></h3>
+					<p>
+						<div class="slider slider-for">
+							<?php 
+							while ($img = $busca_ultimas_publicaciones_img->fetch(PDO::FETCH_ASSOC)) {
+								echo '<img src="publicaciones/imagenes/'.$img['imagenes'].'" class="img-fluid contain" style="width: 240px;height: 150px;" alt="'.$titulo.'">';
+							}
+							?>
+						</div>
+					</p>
+					<p>
+						<table class="table text-left ml-3">
+							<tbody>
+								<tr class="style-text-2">
+									<td scope="row" style="font-weight: bold; font-size: 1.2em;">Sexo</td>
+									<td><?php echo $Icon_Sexo.' '.$Sexo; ?></td>
+								</tr>
+								<tr class="style-text-2">
+									<td scope="row" style="font-weight: bold; font-size: 1.2em;">Edad</td>
+									<td><?php echo $Edad_Animal.' '. $Meses_Years; ?></td>
+								</tr>
+								<tr class="style-text-2">
+									<td scope="row" style="font-weight: bold; font-size: 1.2em;">Tamaño</td>
+									<td><?php echo $SizeAnimal; ?></td>
+								</tr>
+							</tbody>
+						</table>
+					</p>
+					<p>
+						<?php if ($Perdido == 0) { ?>
+							<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="publicaciones/<?php echo $id; ?>">¡Quiero adoptarlo!</a>
+						<?php } else { ?>
+							<a class="btn nav-link style-text-2 btn-block ay-btn style-text-1" href="publicaciones/<?php echo $id; ?>">¡Sé donde se encuentra!</a>
+						<?php } ?>
+					</p>
+				</div>
+			</div>
+		
+		<?php } else{
+			echo "";
+		} ?>
+		<?php } ?>
+	</div>
+</section>
+<?php } else{} ?>

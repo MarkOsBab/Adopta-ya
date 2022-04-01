@@ -1,0 +1,62 @@
+<!-- MERCADO PAGO MODAL -->
+<div class="modal fade" id="mercadopagoDonate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered ">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">DONAR CON MERCADO PAGO</h5>
+				<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form method="post">
+					<div class="row form-group justify-content-center">
+						<div class="col-sm-8">
+							<input type="number" class="w3-input" name="ammount_mp" placeholder="Ingresa la cantidad en pesos que deseas donar">
+							<?php $transaction_token = generar_token_seguro(40); ?>
+							<input type="hidden" name="token_transaction" value="<?php echo $transaction_token; ?>">
+						</div>
+						<div class="col-sm-2 align-items-center">
+							<button type="submit" name="dona_mp" class="btn default-btn btn-lg">Donar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Creates the bootstrap modal where the image will appear -->
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="" id="imagepreview" class="w-100 h-100">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MERCADO PAGO MODAL -->
+<div class="modal fade" id="change_profile_photo" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered ">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title col-12 text-bold style-text-2 text-center">Actualizar foto de perfil</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row text-center">
+					<form method="POST" enctype="multipart/form-data" name="change_profile_image">
+						<input type="hidden" name="change">
+						<div class="text-center">
+							<div id="yourBtn" class="btn publicar-btn border-radius" onclick="getFile()"><i class="fal fa-cloud-upload-alt"></i> Subir una foto</div>
+						  <!-- this is your file input tag, so i hide it!-->
+						  <!-- i used the onchange event to fire the form submission-->
+						  <div style='height: 0px;width: 0px; overflow:hidden;'><input id="upfile" type="file" name="profile_image" value="upload" onchange="sub(this)" /></div>
+						  <!-- here you can have file submit button or you can write a simple script to upload the file automatically-->
+						  <!-- <input type="submit" value='submit' > -->
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
